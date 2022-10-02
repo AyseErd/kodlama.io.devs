@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Contexts;
 
@@ -10,9 +11,10 @@ using Persistence.Contexts;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220919161459_Add-LanguageFramework")]
+    partial class AddLanguageFramework
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,6 +42,7 @@ namespace Persistence.Migrations
                         .HasColumnName("ProgrammingLanguageId");
 
                     b.Property<string>("Version")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Version");
 
@@ -48,22 +51,6 @@ namespace Persistence.Migrations
                     b.HasIndex("ProgrammingLanguageId");
 
                     b.ToTable("LanguageFrameworks", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "JSP",
-                            ProgrammingLanguageId = 3,
-                            Version = "3.1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "ASP.NET",
-                            ProgrammingLanguageId = 4,
-                            Version = "4.7"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Entities.ProgLanguage", b =>

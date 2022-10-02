@@ -16,6 +16,7 @@ namespace Persistence
                 options.UseSqlServer(
                     configuration.GetConnectionString("CodingIoDevConnectionString")));
             services.AddScoped<IProgLanguageRepository, ProgLanguageRepository>();
+            services.AddScoped<ILanguageFrameworkRepository, LanguageFrameworkRepository>();
 
             return services;
         }

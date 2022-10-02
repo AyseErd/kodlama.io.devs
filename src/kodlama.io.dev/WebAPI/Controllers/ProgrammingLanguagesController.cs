@@ -1,8 +1,8 @@
-﻿using Application.Features.Commands;
-using Application.Features.Dtos;
-using Application.Features.Models;
-using Application.Features.Queries.GetByIdProgLanguage;
-using Application.Features.Queries.GetListProgLanguage;
+﻿using Application.Features.ProgrammingLanguages.Commands;
+using Application.Features.ProgrammingLanguages.Dtos;
+using Application.Features.ProgrammingLanguages.Models;
+using Application.Features.ProgrammingLanguages.Queries.GetByIdProgLanguage;
+using Application.Features.ProgrammingLanguages.Queries.GetListProgLanguage;
 using Core.Application.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Http;

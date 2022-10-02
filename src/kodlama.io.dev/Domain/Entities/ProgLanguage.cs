@@ -10,6 +10,7 @@ namespace Domain.Entities
     public class ProgLanguage:Entity
     {
         public string Name { get; set; }
+        public ICollection<LanguageFramework> LanguageFrameworks { get; set; }
         public ProgLanguage()
         {
 

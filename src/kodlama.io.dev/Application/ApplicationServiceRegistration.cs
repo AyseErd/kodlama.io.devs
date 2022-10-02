@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
-using Application.Features.Rules;
+using Application.Features.LanguageFrameworks.Rules;
+using Application.Features.ProgrammingLanguages.Rules;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using MediatR;
@@ -14,6 +15,7 @@ namespace Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<ProgLanguageBusinessRules>();
+            services.AddScoped<LanguageFrameworkBusinessRules>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
