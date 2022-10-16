@@ -22,6 +22,8 @@
     <Folder Include="Features\Auths\Models\" />
     <Folder Include="Features\Auths\Profiles\" />
     <Folder Include="Features\Auths\Queries\" />
+    <Folder Include="Features\UserSocialMediaAddresses\Models\" />
+    <Folder Include="Features\UserSocialMediaAddresses\Queries\" />
   </ItemGroup>
 
 </Project>

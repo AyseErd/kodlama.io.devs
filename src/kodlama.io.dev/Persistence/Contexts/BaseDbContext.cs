@@ -1,5 +1,6 @@
 ﻿using Core.Security.Entities;
 using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -14,6 +15,7 @@ namespace Persistence.Contexts
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<UserSocialMediaAddress> UserSocialMediaAddresses { get; set; }
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
         {
@@ -92,6 +94,16 @@ namespace Persistence.Contexts
                 rt.Property(p => p.RevokedByIp).HasColumnName("RevokedByIp");
                 rt.Property(p => p.ReplacedByToken).HasColumnName("ReplacedByToken");
                 rt.Property(p => p.ReasonRevoked).HasColumnName("ReasonRevoked");
+            });
+
+            modelBuilder.Entity<UserSocialMediaAddress>(us =>
+            {
+                us.ToTable("UserSocialMediaAddresses").HasKey(k => k.Id);
+                us.Property(p => p.Id).HasColumnName("Id");
+                us.Property(p => p.UserId).HasColumnName("UserId");
+                us.HasOne(u => u.User);
+                us.Property(p => p.SocialMediaType).HasColumnName("SocialMediaType").HasDefaultValue(SocialMediaType.Github);
+                us.Property(p => p.SocialMediaUrl).HasColumnName("SocialMediaUrl");
             });
 
             ProgLanguage[] progLanguageSeeds = { new(1, "C"), new(2, "C++"), new(3, "Java") , new(4, "C#"), new(5, "JavaScript") };
